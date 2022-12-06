@@ -1,9 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[9]:
-
-
+# import relevant packages
 from random import random
 import string
 import tkinter as tk
@@ -13,10 +8,7 @@ import customtkinter as ctk
 from tkinter import *
 from tkinter import ttk
 
-
-# In[10]:
-
-
+# below are functions used to generate the password
 def generate_password():
     '''A function to generate a random password'''
     l = generate_letters()
@@ -27,9 +19,6 @@ def generate_password():
     return ''.join(shuffle(l+n+s))
 
 
-# In[11]:
-
-
 def generate_numbers():
     '''A function to generate list of random integers between 0 and 9'''
     numbers = []
@@ -37,9 +26,6 @@ def generate_numbers():
     for i in range(length):
         numbers.append(random.randint(0,9))
     return numbers
-
-
-# In[12]:
 
 
 def generate_symbols():
@@ -52,8 +38,6 @@ def generate_symbols():
     return symbols
 
 
-# In[13]:
-
 
 def generate_letters():
     '''function to generate a list of random letters'''
@@ -64,24 +48,21 @@ def generate_letters():
     return letters
 
 
-# In[15]:
-
-
+# this function clears widgets from frame passed
 def clear_widgets(frame):
     # select all frame widgets and delete them
     for widget in frame.winfo_children():
         widget.destroy()
 
 
-# In[32]:
-
-
+#setting up the interface
 background='#323050'
 ctk.set_appearance_mode('Dark')
 ctk.set_default_color_theme('dark-blue')
 
 
 def load_frame1():
+    '''function that loads the main frame'''
     clear_widgets(frame2)
     # stack frame 1 on top
     frame1.tkraise()
@@ -105,7 +86,9 @@ def load_frame1():
         command=lambda:load_frame2()
         ).place(rely=0.5,relx=0.5, anchor=CENTER)
 
+    
 def load_frame2():
+    '''function that loads the frame that contains the password'''
     clear_widgets(frame1)
     # stack frame 2 
     frame2.tkraise()
@@ -144,10 +127,3 @@ load_frame1()
 
 # run app
 window.mainloop()
-
-
-# In[ ]:
-
-
-
-
